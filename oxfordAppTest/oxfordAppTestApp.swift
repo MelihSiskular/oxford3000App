@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct oxfordAppTestApp: App {
@@ -13,5 +14,9 @@ struct oxfordAppTestApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: ListHard.self)
+        
+        
+        
     }
 }
