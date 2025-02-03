@@ -8,15 +8,21 @@
 import SwiftUI
 import SwiftData
 
+
 struct ContentView: View {
     
+    
+    //MARK: Properties
     @Environment(\.modelContext) var modelContext
-    @Query private var savedHard : [ListHard]
+    @Query  var savedHard : [ListHard]
+    
     
     @State var kelimeler : [Kelimeler] = []
     
     @State var currentWordEn = "English Word"
     @State var currentWordTr = ""
+    
+    
     
     @State var listOfFırst = [Kelimeler]()
     @State var listOfHard = [Kelimeler]()
@@ -29,33 +35,34 @@ struct ContentView: View {
     @State var selectedHard = false
     @State var reverse = false
 
+    
+    //MARK: View
     var body: some View {
         ZStack(alignment: .top) {
     
             
-            LinearGradient(gradient: Gradient(colors: [.cyan.mix(with: .white, by: 0.2),.white]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+            //MARK: Background
+            ViewBackGround()
 
             
             VStack {
                 
-                Text("The Oxford 3000")
-                    .font(.custom("Thonburi Bold", size: 40, relativeTo: .footnote))
-                    .padding(.top,30)
-                    .shadow(radius: 4)
+                
+                //MARK: Title
+                TopView()
 
-                
-                    
-                
 
                 Spacer()
                 
+                
+                //MARK: Button
                 Button(isTapped ? "Show" : "Start") {
                     
                     if selectedHard {
                         listOfHard.append(Kelimeler(tr: currentWordTr, en: currentWordEn))
                         
                         modelContext.insert(ListHard(tr: currentWordTr, en: currentWordEn))
+                        
                         do {
                             try modelContext.save()
                         } catch { }
@@ -118,25 +125,17 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
                 
+                
+                //MARK: Middle Section
                 ZStack {
-                    VStack {
-                        Text("Improve Your English Vocab Skill With Using \n\"The Oxford 3000\"")
-                            .font(.custom("AmericanTypewriter", size: 28))
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                        RoundedRectangle(cornerRadius: 0, style: .continuous)
-                            .frame(maxWidth: .infinity,maxHeight: 1)
-                        Text("Save the words according to the categories in this way you can beware that your missing") .font(.custom("AmericanTypewriter", size: 24))
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                            
-                    }
-                    .opacity(isTapped ? 0:1)
-
-                   
                     
+                    //MARK: First Entrance
+                    EntranceText(isTapped: isTapped)
+                        //.opacity(isTapped ? 0:1)
+
+                    
+                   
+                    //MARK: After Start Button
                     ZStack{
                         RoundedRectangle(cornerRadius: 24)
                             .foregroundStyle(.white)
@@ -213,8 +212,13 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                //MARK: Horizontal Buttons
+                
                 HStack {
+                
                     Spacer()
+                    
+                    //MARK: First Button - LEFT
                     Button("FIRST", systemImage: "bolt") {
                         
                         if selectedFirst && !selectedHard {
@@ -224,12 +228,6 @@ struct ContentView: View {
                             selectedHard = false
                             selectedFirst = true
                         }
-                      
-                
-                      
-                     
-                        
-                       
 
                     }
                     .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
@@ -241,8 +239,11 @@ struct ContentView: View {
                     .foregroundStyle(Color.black)
                     .offset(x: afterTapped ? 0:-1000)
                     
+                    
                     Spacer()
                     
+                    
+                    //MARK: Hard Button - RIGHT
                     Button("HARD",systemImage: "exclamationmark.3") {
                         
                         if !selectedFirst && selectedHard {
@@ -253,8 +254,7 @@ struct ContentView: View {
                             selectedFirst = false
                             
                         }
-                      
-                       
+    
                     }
                     .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                     .fontWeight(.bold)
@@ -276,8 +276,6 @@ struct ContentView: View {
             }
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity)
-            //.background(.cyan.mix(with: .white, by: 0.4))
-            
        
         }
         
@@ -290,3 +288,41 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+//MARK: ExtractedViews
+
+//struct ExtractedView: View {
+//    var body: some View {
+//        Text("The Oxford 3000")
+//            .font(.custom("Thonburi Bold", size: 40, relativeTo: .footnote))
+//            .padding(.top,30)
+//            .shadow(radius: 4)
+//    }
+//}
+
+//struct ExtractedView: View {
+//    var body: some View {
+//        LinearGradient(gradient: Gradient(colors: [.cyan.mix(with: .white, by: 0.2),.white]), startPoint: .top, endPoint: .bottom)
+//            .ignoresSafeArea()
+//    }
+//}
+
+//struct ExtractedView: View {
+//    var body: some View {
+//        VStack {
+//            Text("Improve Your English Vocab Skill With Using \n\"The Oxford 3000\"")
+//                .font(.custom("AmericanTypewriter", size: 28))
+//                .font(.headline)
+//                .fontWeight(.semibold)
+//                .multilineTextAlignment(.center)
+//            RoundedRectangle(cornerRadius: 0, style: .continuous)
+//                .frame(maxWidth: .infinity,maxHeight: 1)
+//            Text("Save the words according to the categories in this way you can beware that your missing") .font(.custom("AmericanTypewriter", size: 24))
+//                .font(.headline)
+//                .fontWeight(.semibold)
+//                .multilineTextAlignment(.center)
+//            
+//        }
+//        
+//    }
+//}
