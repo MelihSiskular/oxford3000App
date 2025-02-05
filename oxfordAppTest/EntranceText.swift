@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EntranceText: View {
     
-    @State var isTapped = false
+    @Binding var isTapped: Bool
     
     var body: some View {
         VStack {
@@ -32,5 +32,5 @@ struct EntranceText: View {
 }
 
 #Preview {
-    EntranceText()
+    EntranceText(isTapped: .constant(false))
 }
