@@ -13,7 +13,8 @@ struct MainView: View {
     @State var selectedScreen = 1
     
     @Environment(\.modelContext) var modelContext
-    @Query  var savedHard : [ListHard]
+    @Query  var savedFirstData : [ListFirstData]
+    @Query  var savedHardData : [ListHardData]
     
     
     
@@ -28,6 +29,7 @@ struct MainView: View {
                     .tabItem {
                         Label("First", systemImage: "bolt")
                     }.tag(0)
+                    .badge(savedFirstData.count)
                 ContentView()
                     .tabItem {
                         Label("Main", systemImage: "house")
@@ -36,7 +38,7 @@ struct MainView: View {
                     .tabItem {
                         Label("Hard", systemImage: "exclamationmark.3")
                     }.tag(2)
-                    .badge(savedHard.count)
+                    .badge(savedHardData.count)
                 
             }
             .toolbar {

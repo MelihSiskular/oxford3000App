@@ -28,7 +28,7 @@ struct HardButtonView: View {
         }
         .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
         .fontWeight(.bold)
-        .font(.largeTitle)
+        .font(.title)
         .tint(selectedFirst ? Color.red.opacity(0.4) : Color.red)
         .foregroundStyle(Color.black)
         .buttonStyle(.borderedProminent)

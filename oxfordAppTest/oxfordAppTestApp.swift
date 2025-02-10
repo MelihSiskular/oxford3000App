@@ -10,11 +10,19 @@ import SwiftData
 
 @main
 struct oxfordAppTestApp: App {
+    
+    init() {
+        ///When the app opened
+        getNotificationRequest()
+        sendAllArrangedNotifications()
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .preferredColorScheme(.light) ///always gonna work on light mode
         }
-        .modelContainer(for: ListHard.self)
+        .modelContainer(for: [ListHardData.self,ListFirstData.self]) ///SwiftData @Model
         
         
         

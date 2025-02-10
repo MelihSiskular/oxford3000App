@@ -14,18 +14,15 @@ struct ContentView: View {
     
     //MARK: Properties
     @Environment(\.modelContext) var modelContext
-    @Query  var savedHard : [ListHard]
-    
+   
+    @Query  var savedHardData : [ListHardData]
+    @Query  var savedFirstData : [ListFirstData]
+
     
     @State var kelimeler : [Kelimeler] = []
     
     @State var currentWordEn = "English Word"
     @State var currentWordTr = ""
-    
-    
-    
-    @State var listOfFırst = [Kelimeler]()
-    @State var listOfHard = [Kelimeler]()
     
     @State var isTapped  : Bool = false
     @State var afterTapped = false
@@ -56,8 +53,9 @@ struct ContentView: View {
                 
                 
                 //MARK: Button
-                LaunchButtonView(isTapped: $isTapped, selectedHard: $selectedHard, selectedFirst: $selectedFirst, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, kelimeler: $kelimeler, listOfFırst: $listOfFırst, listOfHard: $listOfHard)
+                LaunchButtonView(isTapped: $isTapped, selectedHard: $selectedHard, selectedFirst: $selectedFirst, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, kelimeler: $kelimeler)
                 
+            
                 
                 //MARK: Middle Section
                 ZStack {
@@ -83,12 +81,14 @@ struct ContentView: View {
                     
                     //MARK: First Button - LEFT
                     FirstButtonView(selectedFirst: $selectedFirst, selectedHard: $selectedHard, afterTapped: $afterTapped)
+                        .lineLimit(1)
                     
                     Spacer()
                     
                     //MARK: Hard Button - RIGHT
                     HardButtonView(selectedFirst: $selectedFirst, selectedHard: $selectedHard, afterTapped: $afterTapped)
-                    
+                        .lineLimit(1)
+
                     
                     Spacer()
                 }

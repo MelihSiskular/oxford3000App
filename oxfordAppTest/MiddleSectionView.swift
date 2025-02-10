@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct MiddleSectionView: View {
     @Binding var isEnglish : Bool
@@ -13,6 +14,9 @@ struct MiddleSectionView: View {
     @Binding var currentWordEn : String
     @Binding var currentWordTr : String
     @Binding var isTapped : Bool
+    
+    @State private var player: AVPlayer?
+
     
     var body: some View {
       
@@ -70,6 +74,9 @@ struct MiddleSectionView: View {
                         .frame(maxWidth: 20)
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(.gray.mix(with: .black, by: 0.3))
+                        .onTapGesture {
+                            fetchAudio(word: currentWordEn)
+                        }
                     
                 }
                 Text(isEnglish ? currentWordEn:currentWordTr)
@@ -87,6 +94,48 @@ struct MiddleSectionView: View {
             .opacity(isTapped ? 1:0)
             .frame(maxWidth: .infinity,maxHeight: 200)
         }
+    
+    func fetchAudio(word:String) {
+        
+        
+        
+        let mainUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
+        
+        
+        
+        guard let url = URL(string: mainUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            guard let data = data else {return}
+            
+            
+            
+            do {
+                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
+    
+                
+                if let firstEntry = jsonResponse?.first,
+                   let phonetics = firstEntry["phonetics"] as? [[String: Any]] {
+                    
+                    //Find the one that not nil
+                    let validAudio = phonetics.compactMap { $0["audio"] as? String }.first(where: { !$0.isEmpty })
+                    
+                    if let audioUrlString = validAudio, let audioUrl = URL(string: audioUrlString) {
+                        DispatchQueue.main.async {
+                            player = AVPlayer(url: audioUrl)
+                            player?.play()
+                        }
+                    } else {
+                        print("hata")
+                    }
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
     }
 
 

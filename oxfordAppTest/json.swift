@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import AVFoundation
+import SwiftUICore
 
 struct Kelimeler : Codable {
     let tr: String
     let en: String
 }
+
+
 
 struct Dizi {
     static let alfabe = [
@@ -45,4 +49,12 @@ struct Functionss {
         return dizi[random]
     }
     
+    
+
+    
 }
+
+
+
+
+

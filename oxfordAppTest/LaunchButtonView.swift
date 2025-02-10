@@ -17,32 +17,34 @@ struct LaunchButtonView: View {
     @Binding var currentWordEn: String
     @Binding var currentWordTr: String
     @Binding var kelimeler : [Kelimeler]
-    @Binding var listOfFırst : [Kelimeler]
-    @Binding var listOfHard : [Kelimeler]
     
-    @Query  var savedHard : [ListHard]
+    @Query  var savedHardData : [ListHardData]
+    @Query  var savedFirstData : [ListFirstData]
+
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
         Button(isTapped ? "Show" : "Start") {
             
             if selectedHard {
-                listOfHard.append(Kelimeler(tr: currentWordTr, en: currentWordEn))
-                
-                modelContext.insert(ListHard(tr: currentWordTr, en: currentWordEn))
+
+                modelContext.insert(ListHardData(tr: currentWordTr, en: currentWordEn, point: 0))
                 
                 do {
                     try modelContext.save() //Save process not working accurately thats why there's a code like that
                 } catch { }
                 
-                print("")
-                for i in savedHard {
-                    print(i.en)
-                }
+           
                 
                 
             }else if selectedFirst {
-                listOfFırst.append(Kelimeler(tr: currentWordTr, en: currentWordEn))
+                
+                
+                modelContext.insert(ListFirstData(tr: currentWordTr, en: currentWordEn, point: 0))
+                
+                do {
+                    try modelContext.save() //Save process not working accurately thats why there's a code like that
+                } catch { }
             }
             
             
@@ -63,6 +65,7 @@ struct LaunchButtonView: View {
                     kelimeler = words //3846 kelime
                     //print("Başla")
                     
+                    /*
                     for word in kelimeler {
                         var index = 0
                         for firsIndex in Dizi.alfabe {
@@ -72,6 +75,7 @@ struct LaunchButtonView: View {
                             }
                         }
                     }
+                     */
                     
                 } else {
                     print("Kelimeler yüklenemedi.")

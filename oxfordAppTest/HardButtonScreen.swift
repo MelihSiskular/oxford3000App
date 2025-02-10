@@ -28,8 +28,14 @@ struct HardButtonScreen: View {
     
     @State private var isHidden : Bool = false
     @Environment(\.modelContext) var modelContext
-    @Query  var savedHard : [ListHard]
+   
+    @State var leftButton = "Left"
+    @State var middleButton = "QUIZ"
+    @State var rightButton = "Hide"
     
+    @Query  var savedHardData : [ListHardData]
+    
+    @State var colors : [Color] = [Color]()
 
     
     var body: some View {
@@ -51,30 +57,31 @@ struct HardButtonScreen: View {
                     
                     Spacer()
                     
+                    
                     HStack {
                         
                         Button("Left") {
                             
-                        }
-                        .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
-                        .fontWeight(.bold)
-                        .font(.largeTitle)
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.roundedRectangle)
-                        .tint(Color.orange.mix(with: .white, by: 0.1))
-                        .foregroundStyle(Color.black)
-                        
-                        Spacer()
-                        
-                        Button("QUIZ") {
-                            
                         }   .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                             .fontWeight(.bold)
-                            .font(.largeTitle)
+                            .font(.title)
                             .buttonStyle(.borderedProminent)
                             .buttonBorderShape(.roundedRectangle)
                             .tint(Color.orange.mix(with: .white, by: 0.1))
                             .foregroundStyle(Color.black)
+                        
+                        
+                        Spacer()
+                        
+                            Button("QUIZ") {
+                                
+                            }   .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .buttonStyle(.borderedProminent)
+                                .buttonBorderShape(.roundedRectangle)
+                                .tint(Color.orange.mix(with: .white, by: 0.1))
+                                .foregroundStyle(Color.black)
                         Spacer()
                         
                         Button(isHidden ? "Show" : "Hide") {
@@ -84,7 +91,7 @@ struct HardButtonScreen: View {
                         }
                         .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                         .fontWeight(.bold)
-                        .font(.largeTitle)
+                        .font(.title)
                         .buttonStyle(.borderedProminent)
                         .buttonBorderShape(.roundedRectangle)
                         .tint(Color.orange.mix(with: .white, by: 0.1))
@@ -96,41 +103,39 @@ struct HardButtonScreen: View {
                     Spacer()
                     
                     List {
-                        ForEach(savedHard,id: \.en) { saved in
-                            
-                            
-                            
-                            HStack {
+                        ForEach(Array(zip(savedHardData,colors)),id: \.0) { (saved,color) in
                                 
-                                Color(Color(uiColor: .red))
-                                    .frame(width: 40, height: 40, alignment: .leading)
-                                    .cornerRadius(6)
+                                HStack {
+
+                                    Color(color)
+                                        .frame(width: 40, height: 40, alignment: .leading)
+                                        .cornerRadius(6)
+                                    
+                                    Text(saved.en)
+                                        .font(.headline)
+                                        .fontWeight(.black)
+                                    Spacer()
+                                    Text(saved.tr)
+                                        .font(.subheadline)
+                                        .offset(x:isHidden ? 10:0)
+                                        .opacity(isHidden ? 0:1)
+                                    
+                                }
+                                .listRowSeparatorTint(.cyan)
+                                .listRowBackground(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(Color.white)
+                                        .padding(.vertical,2)
+                                        .padding(.horizontal,5)
+                                    
+                                )
                                 
-                                Text(saved.en)
-                                    .font(.headline)
-                                    .fontWeight(.black)
-                                Spacer()
-                                Text(saved.tr)
-                                    .font(.subheadline)
-                                    .offset(x:isHidden ? 10:0)
-                                    .opacity(isHidden ? 0:1)
+                                
+                                
                                 
                             }
-                            .listRowSeparatorTint(.cyan)
-                            .listRowBackground(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color.white)
-                                    .padding(.vertical,2)
-                                    .padding(.horizontal,5)
-                                
-                            )
                             
-                           
-                                
-                            
-                        }
-                        
-                        .frame(height: 40)
+                            .frame(height: 40)
                         
                     }
                     .navigationTitle("Hard Words")
@@ -143,10 +148,31 @@ struct HardButtonScreen: View {
                 
                   
             }
+        }.onAppear() {
+            colorsfunc(data: savedHardData, colors: &colors)
         }
     }
 }
 
 #Preview {
     HardButtonScreen()
+}
+
+func colorsfunc(data: [ListHardData],colors: inout [Color]) {
+    
+    
+    for i in data {
+        if i.point < 0 {
+            colors.append(Color.black)
+        }else if i.point >= 0 && i.point <= 2 {
+            colors.append(Color.red)
+        }
+        else if i.point > 2 && i.point <= 4 {
+            colors.append(Color.yellow)
+        }
+        else if i.point > 4 {
+            colors.append(Color(uiColor: .systemGreen))
+
+        }
+    }
 }

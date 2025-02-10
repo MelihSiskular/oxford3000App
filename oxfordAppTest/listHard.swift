@@ -8,13 +8,43 @@
 import Foundation
 import SwiftData
 
+
+
+
 @Model
-class ListHard {
-    var tr : String
-    var en : String
+class ListHardData {
+    var tr: String
+    var en: String
+    var point: Int
     
-    init(tr: String, en: String) {
+    init(tr: String, en: String, point: Int) {
         self.tr = tr
         self.en = en
+        self.point = point
     }
+}
+
+@Model
+class ListFirstData {
+    var tr: String
+    var en: String
+    var point: Int
+    
+    
+    init(tr: String, en: String, point: Int) {
+        self.tr = tr
+        self.en = en
+        self.point = point
+      
+    }
+}
+
+
+
+enum Difficult {
+    case Easy
+    case Medium
+    case Hard
+    
+    
 }

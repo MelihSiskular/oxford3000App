@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FirstButtonView: View {
     
     @Binding var selectedFirst: Bool
     @Binding var selectedHard: Bool
     @Binding var afterTapped: Bool
+    
 
 
     
@@ -29,7 +31,7 @@ struct FirstButtonView: View {
         }
         .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
         .fontWeight(.bold)
-        .font(.largeTitle)
+        .font(.title)
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.roundedRectangle)
         .tint(selectedHard ? Color.orange.opacity(0.4) : Color.orange)
