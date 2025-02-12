@@ -21,7 +21,7 @@ struct ContentView: View {
     
     @State var kelimeler : [Kelimeler] = []
     
-    @State var currentWordEn = "English Word"
+    @State var currentWordEn = "English_Word".localized
     @State var currentWordTr = ""
     
     @State var isTapped  : Bool = false

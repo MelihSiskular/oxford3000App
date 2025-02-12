@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  oxfordAppTest
+
+  Created by Melih Şişkular on 12.02.2025.
+  
+*/
+
+
+"entrance_text_top" = "\"The Oxford 3000\"\nkullanarak İngilizce kelime bilginizi geliştirin";
+"entrance_text_bottom" = "Kelimeleri kategorilerine göre kaydedin, bu şekilde eksiklerinizin farkına varın";
+"start_button" = "Başla";
+"show_button" = "Göster";
+"English_Word" = "İngilizce Kelime";
+"main_tab_first" = "İlk Defa";
+"main_tab_main" = "Ana Ekran";
+"main_tab_hard" = "Zor";
+"first_button" = "İlk Kez";
+"hard_button" = "Zor";
+"info_text" = "Uygulama hakkında bilgi";
+"what_is_3000" = "\"The Oxford 3000\" Nedir?";
+"answer_what_is_3000" = "The Oxford 3000, her İngilizce öğrenicisinin bilmesi gereken 3000 temel kelimenin listesidir.";
+"target_text" = "Amaç?";
+"answer_target_text" = "Yeni bir dil öğrenmenin kurallarından biri, mümkün olduğunca çok kelime bilmekle ilgilidir. Kendi ana dilimizde günde kaç kelime kullandığımızı hiç düşündünüz mü? Oxford 3000'in söylediği gibi, daha iyi iletişim için bu kelimeleri bilmemiz gerekir, asla kullanmayacağımız tüm İngilizce kelimeleri değil, en azından başlangıçta. Birçok farklı dil konuşabilen kişilere göre, \"Kelime bilmiyorsak, konuşamayız!\"";
+"how_works_text" = "Nasıl Çalışıyor?";
+"answer_how_works_text" = "Hâlihazırda İngilizce konuşabiliyor ol ya da olma yeni bir kelime öğrenmek esastır. Uygulamada kelime ingilizce şekilde gözükür, kelimeye iki kere tıklama ile türkçe karşılığını görebilirsin. Eğer kelimeyi biliyorsan geç ancak kelimeyi ilk defa görüyorsan ya da ilk defa görmesen bile bir türlü öğrenemediysen, ilgili kategorilere ayır. Sonuç olarak kaydettiğin tüm kelimeler uygulamada gözükecek ve sen istediğin zaman bunlara tab bar menüden ulaşılabileceksin. Kaydettiğin kelimelerin bu uygulamada ki güzel yanı kendini bizim QUIZ'lerimizle test edebileceksin";
+"provide_text" = "Bu Uygulama Size Ne Sağlıyor";
+"answer_provide_text" = "En önemli kelimeleri, eksiklerini ve kötü yanlarını fark etme. Ayrıca not defterine not almak için zahmet etme, burda kelimeleri seç ve kendini eğitici QUIZ'ler ile test et. Eğer listende \"Zor Kelimeler\" varsa uygulama sana hatırlatıcı gönderecek.";
+"meanings_text" = "Anlamlar?";
+"bolt_text" = "Eğer kelimeyi ilk defa görüyorsan.";
+"exclamination_text" = "Defalarca görmene rağmen hala kullanmakta ve hatırlamakta zorlanıyorsan.";
+"graduationcap_text" = "Eğer Hâlihazırda bu kelimeyi başarıyla öğrendiysen.";
+"microphone_text" = "Konuşmak ve telafuzunu kaydet.";
+"future_text" = "İleride bu uygulamada ne olucak?";
+"answer_future_text" = "Şu anda sesimizi kaydediyoruz ve kendimizi dinleyebiliyoruz, gelecekte ise sözlükten doğru telaffuzları da duyabileceğiz ve uygulamaya konuştuğumuzda doğru yazılıp yazılmadığını görebileceğiz.\n\nAyrıca şu anda bu uygulamanın geliştiricisi olarak, İtalyanca öğreniyorum, bu yüzden gelecekte 3000 İtalyanca kelime de olacak.\n\nBu uygulama hakkında diğer bir hayalim ise, yerli konuşmacılarla röportaj yapıp onları videoya kaydedip, sizlere yerli aksanı canlı bir şekilde dinletmek.";
+"speaker_text" = "Doğru telaffuzu dinle.";
+"developer_app_text"= "Uygulamanın Geliştiricisi?";
+"done_button" = "Tamam";

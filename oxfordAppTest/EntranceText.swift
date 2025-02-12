@@ -13,14 +13,15 @@ struct EntranceText: View {
     
     var body: some View {
         VStack {
-            Text("Improve Your English Vocab Skill With Using \n\"The Oxford 3000\"")
+            Text("entrance_text_top".localized)
                 .font(.custom("AmericanTypewriter", size: 28))
                 .font(.headline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
             RoundedRectangle(cornerRadius: 0, style: .continuous)
                 .frame(maxWidth: .infinity,maxHeight: 1)
-            Text("Save the words according to the categories in this way you can beware that your missing") .font(.custom("AmericanTypewriter", size: 24))
+            Text("entrance_text_bottom".localized)
+                .font(.custom("AmericanTypewriter", size: 24))
                 .font(.headline)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)

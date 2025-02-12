@@ -18,7 +18,7 @@ struct FirstButtonView: View {
 
     
     var body: some View {
-        Button("FIRST", systemImage: "bolt") {
+        Button("first_button".localized, systemImage: "bolt") {
             
             if selectedFirst && !selectedHard {
                 selectedHard = false

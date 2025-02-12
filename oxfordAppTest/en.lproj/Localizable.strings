@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  oxfordAppTest
+
+  Created by Melih Şişkular on 12.02.2025.
+  
+*/
+
+
+"entrance_text_top" = "Improve Your English Vocab Skill With Using \n\"The Oxford 3000\"";
+"entrance_text_bottom" = "Save the words according to the categories, in this way you can beware that your missing";
+"start_button" = "Start";
+"show_button" = "Show";
+"English_Word" = "English Word";
+"main_tab_first" = "First";
+"main_tab_main" = "Main";
+"main_tab_hard" = "Hard";
+"first_button" = "First";
+"hard_button" = "Hard";
+"info_text" = "Information about App";
+"what_is_3000" = "What is \"The Oxford 3000\"?";
+"answer_what_is_3000" = "The Oxford 3000 is a list of the 3000 core words that every learner of English needs to know.";
+"target_text" = "Target?";
+"answer_target_text" = "One of the rule about learning new langugage is knowing the words as much as we can, in our mother language how many words we are using in a day? Did you think about it before? As The Oxford 3000 said we need to know these words for better communication not all words in english that we never going to use, at least for earlier. According to many people who can speak various languagaes that is \"we cant speak If we dont know vocabs!\"";
+"how_works_text" = "How it works?";
+"answer_how_works_text" = "To already speak english or not in either way learning new words is essential. In app, The words show up, You can see the turkish meaning after tapping the words twice. If you know skip it, If you seen first time or did you find that word hard, discriminate to related categories. As a result your words going to be saved in App and you able to reach them whenever you want from left and right screen that from in menu bar. The good side about these words you saved in this App is you can test yourself in our QUIZ";
+"provide_text" = "What this app provide to you?";
+"answer_provide_text" = "The most important vocablaries, being aware of your missing & bad parts, Also dont bother to note all of the words to notepads just select in here and test yourself with our various instructive Quiz. If you have some \"Hard Words\" in your list this App going to send you a reminder about these words.";
+"meanings_text" = "Meanings?";
+"bolt_text" = "If you seen the word for the first time.";
+"exclamiantion_text" = "Althought many times you seen the word still you get difficulted to remember and use.";
+"graduationcap_text" = "If You've already learned the word succesfully.";
+"microphone_text" = "To speak and record your pronuncation.";
+"speaker_text" = "Listen to correct pronuncation.";
+"future_text" = "What will this App have in the future?";
+"answer_future_text" = "For now we recording our audio and we able to listen ourselves, in the future also we can hear the correct pronuncation from dictioanary and also when we talk to app we will able to see is it correct pronounce or not.\n\nAlso nowadays as a developer of this App I'm working on learning Italian so in the future also there is gonna be 3000 Italian words as well. \n\nOne of my other dream about this app is making a interview with native speakers, recording them on video and provide to you hear native accent and live.";
+"developer_app_text"= "Developer of this App?";
+"done_button" = "Done";

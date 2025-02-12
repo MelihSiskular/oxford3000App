@@ -14,7 +14,7 @@ struct HardButtonView: View {
     @Binding var afterTapped: Bool
     
     var body: some View {
-        Button("HARD",systemImage: "exclamationmark.3") {
+        Button("hard_button".localized,systemImage: "exclamationmark.3") {
             
             if !selectedFirst && selectedHard {
                 selectedHard = false

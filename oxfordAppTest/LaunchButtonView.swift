@@ -18,13 +18,15 @@ struct LaunchButtonView: View {
     @Binding var currentWordTr: String
     @Binding var kelimeler : [Kelimeler]
     
+    
+    
     @Query  var savedHardData : [ListHardData]
     @Query  var savedFirstData : [ListFirstData]
 
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        Button(isTapped ? "Show" : "Start") {
+        Button(isTapped ? "show_button".localized: "start_button".localized) {
             
             if selectedHard {
 
