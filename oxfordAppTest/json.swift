@@ -50,18 +50,7 @@ struct Functionss {
     }
 }
 
-extension Bundle {
-    private static var bundle: Bundle!
-    
-    static func setLanguage(_ language: String) {
-        guard let path = Bundle.main.path(forResource: language, ofType: "lproj") else { return }
-        bundle = Bundle(path: path)
-    }
-    
-    static func localizedString(forKey key: String) -> String {
-        return bundle?.localizedString(forKey: key, value: nil, table: nil) ?? key
-    }
-}
+
 
 extension String {
     var localized: String {

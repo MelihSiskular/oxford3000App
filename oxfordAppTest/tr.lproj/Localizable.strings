@@ -36,3 +36,13 @@
 "speaker_text" = "Doğru telaffuzu dinle.";
 "developer_app_text"= "Uygulamanın Geliştiricisi?";
 "done_button" = "Tamam";
+"left_button" = "Sol";
+"quiz_button" = "QUIZ";
+"hide_button_on" = "Sakla";
+"hide_button_off" = "Göster";
+"first_words_list" = "İlk Kelimeler Listesi";
+"hard_words_list" = "Zor Kelimeler Listesi";
+"hard_words_text" = "Zor kelimeler";
+"first_words_text" = "İlk Kelimeler";
+"language_alert_text" = "Değişiklikler Başarıyla Kaydedildi.";
+

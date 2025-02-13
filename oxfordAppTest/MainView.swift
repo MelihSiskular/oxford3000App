@@ -10,7 +10,7 @@ import SwiftData
 
 struct MainView: View {
     
-    @AppStorage("selectedLanguage") private var selectedLanguage = "en"
+    @StateObject var languageManager = LanguageManager()
 
     private let languages = [
         ("en", "🇬🇧 English"),
@@ -19,6 +19,7 @@ struct MainView: View {
     
     
     @State var selectedScreen = 1
+    @State var showLanguageAlert = false
     
     @Environment(\.modelContext) var modelContext
     @Query  var savedFirstData : [ListFirstData]
@@ -35,12 +36,12 @@ struct MainView: View {
                 
                 FirstButtonScreen()
                     .tabItem {
-                        Label("main_tab_first", systemImage: "bolt")
+                        Label("main_tab_first".localized, systemImage: "bolt")
                     }.tag(0)
                     .badge(savedFirstData.count)
                 ContentView()
                     .tabItem {
-                        Label("main_tab_main", systemImage: "house")
+                        Label("main_tab_main".localized, systemImage: "house")
                     }.tag(1)
                 HardButtonScreen()
                     .tabItem {
@@ -49,6 +50,7 @@ struct MainView: View {
                     .badge(savedHardData.count)
                 
             }
+            .id(languageManager.selectedLanguage) ///when variable changed this screen gonna reload again!
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -72,21 +74,25 @@ struct MainView: View {
                     
                   
                         Menu {
-                            Picker("Dil Seç", selection: $selectedLanguage) {
+                            Picker("Dil Seç", selection: $languageManager.selectedLanguage) {
                                 ForEach(languages, id: \.0) { lang in
                                     Text(lang.1).tag(lang.0)
                                 }
+                            }.onChange(of: languageManager.selectedLanguage) { _, _ in
+                                showLanguageAlert.toggle()
+                             
                             }
-                            .onChange(of: selectedLanguage) { oldValue, newValue in
-                                Bundle.setLanguage(newValue)
-                                print(newValue)
-                            }
+                            
                         } label: {
                             Image(systemName: "flag.2.crossed")
                                 .accentColor(.black.mix(with: .blue, by: 0.6))
-                               
-                               
                         }
+                        .alert("🌎", isPresented: $showLanguageAlert) {
+                            Button("done_button".localized,role:.cancel) {}
+                        }message: {
+                            Text("language_alert_text".localized)
+                        }
+                        
                     
               
                 }
@@ -97,6 +103,38 @@ struct MainView: View {
         
     }
 }
+
+class LanguageManager: ObservableObject {
+    @Published var selectedLanguage: String {
+        didSet {
+            UserDefaults.standard.set(selectedLanguage, forKey: "appLanguage")
+            Bundle.setLanguage(selectedLanguage)
+        }
+    }
+    
+    init() {
+        self.selectedLanguage = UserDefaults.standard.string(forKey: "appLanguage") ?? "en"
+        Bundle.setLanguage(self.selectedLanguage)
+    }
+}
+
+private var bundleKey: UInt8 = 0
+
+final class LanguageBundle: Bundle {
+    override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
+        return (objc_getAssociatedObject(self, &bundleKey) as? Bundle ?? Bundle.main).localizedString(forKey: key, value: value, table: tableName)
+    }
+}
+
+extension Bundle {
+    static func setLanguage(_ language: String) {
+        let value = object_getClass(Bundle.main)
+        object_setClass(Bundle.main, LanguageBundle.self)
+        
+        objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj")!)!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+}
+
 
 #Preview {
     MainView()

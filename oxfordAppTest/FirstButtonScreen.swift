@@ -32,7 +32,7 @@ struct FirstButtonScreen: View {
                 VStack {
                     
                     HStack {
-                        Text("First Words List")
+                        Text("first_words_list".localized)
                             .bold()
                             .font(.largeTitle)
                         
@@ -43,7 +43,7 @@ struct FirstButtonScreen: View {
                     
                     HStack {
                         
-                        Button("Left") {
+                        Button("left_button".localized) {
                             
                         }   .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                             .fontWeight(.bold)
@@ -55,7 +55,7 @@ struct FirstButtonScreen: View {
                         
                         Spacer()
                         
-                        Button("QUIZ") {
+                        Button("quiz_button".localized) {
                             
                         }   .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                             .fontWeight(.bold)
@@ -67,7 +67,7 @@ struct FirstButtonScreen: View {
                         
                         Spacer()
                         
-                        Button(isHidden ? "Show" : "Hide") {
+                        Button(isHidden ? "hide_button_off".localized : "hide_button_on".localized) {
                             withAnimation {
                                 isHidden.toggle()
                             }
@@ -122,7 +122,7 @@ struct FirstButtonScreen: View {
         
                 
             }
-            .navigationTitle("First Words")
+            .navigationTitle("first_words_text".localized)
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)
             

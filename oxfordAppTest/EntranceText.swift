@@ -29,9 +29,7 @@ struct EntranceText: View {
         }
         .opacity(isTapped ? 0:1)
         
+
     }
 }
 
-#Preview {
-    EntranceText(isTapped: .constant(false))
-}
