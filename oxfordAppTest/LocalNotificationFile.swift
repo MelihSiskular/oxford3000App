@@ -50,11 +50,11 @@ func arrangeScheduledNotifications(hour:Int, min:Int,id:String,title:String,body
 
 
 func sendAllArrangedNotifications() {
-    arrangeScheduledNotifications(hour: 8, min: 30, id: "morningN",title: "The Oxford 3000",body: "Good Morning! Would you like to start the day with practice?")
-    arrangeScheduledNotifications(hour: 12, min: 30, id: "lunchN",title: "The Oxford 3000",body: "Do Not Forget To Learn! Did you check your list? Maybe there are some words that you haven't known yet.")
-    arrangeScheduledNotifications(hour: 16, min: 30, id: "afternoonN",title: "The Oxford 3000",body: "Reminder for you! You can not learn langugage without studying.")
-    arrangeScheduledNotifications(hour: 18, min: 30, id: "freetimeN",title: "The Oxford 3000",body: "Do Not Forget To Learn! Did you check your list? Maybe there are some words that you haven't known yet.")
-    arrangeScheduledNotifications(hour: 20, min: 30, id: "eveningN",title: "The Oxford 3000",body: "What was it the word you always forget but sounds familiar? Learn by heart now. ")
-    arrangeScheduledNotifications(hour: 22, min: 30, id: "nightN",title: "The Oxford 3000",body: "Do Not Forget To Learn! Did you check your list? Maybe there are some words that you havent know'n yet.")
+    arrangeScheduledNotifications(hour: 8, min: 30, id: "morningN",title: "The Oxford 3000",body: "notification-2".localized)
+    arrangeScheduledNotifications(hour: 12, min: 30, id: "lunchN",title: "The Oxford 3000",body: "notification-1".localized)
+    arrangeScheduledNotifications(hour: 16, min: 30, id: "afternoonN",title: "The Oxford 3000",body: "notification-3".localized)
+    arrangeScheduledNotifications(hour: 18, min: 30, id: "freetimeN",title: "The Oxford 3000",body: "notification-1".localized)
+    arrangeScheduledNotifications(hour: 20, min: 30, id: "eveningN",title: "The Oxford 3000",body: "notification-4".localized)
+    arrangeScheduledNotifications(hour: 22, min: 30, id: "nightN",title: "The Oxford 3000",body: "notification-1".localized)
 }
 

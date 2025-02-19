@@ -16,7 +16,7 @@ struct MiddleSectionView: View {
     @Binding var isTapped : Bool
     
     @State private var player: AVPlayer?
-
+    
     
     var body: some View {
       
@@ -97,10 +97,7 @@ struct MiddleSectionView: View {
     
     func fetchAudio(word:String) {
         
-        
-        
         let mainUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
-        
         
         
         guard let url = URL(string: mainUrl) else { return }
@@ -108,8 +105,6 @@ struct MiddleSectionView: View {
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             guard let data = data else {return}
-            
-            
             
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]

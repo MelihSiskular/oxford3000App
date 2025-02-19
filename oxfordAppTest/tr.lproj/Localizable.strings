@@ -45,4 +45,8 @@
 "hard_words_text" = "Zor kelimeler";
 "first_words_text" = "İlk Kelimeler";
 "language_alert_text" = "Değişiklikler Başarıyla Kaydedildi.";
+"notification-1" = "Çalışmayı Unutma. Listeni kontrol et, belki hala anlamını bilmediğin kelimeler var.";
+"notification-2" = "Günaydın. Güne pratik yaparak başlamak ister misin?";
+"notification-3" = "Senin için bir hatırlatma, Çalışmadan bir dili öğrenemezsin.";
+"notification-4" = "Kulağına çok tanıdık gelen ama bir türlü hatırlayamadığın kelime neydi? Şimdi kalpten öğren.";
 

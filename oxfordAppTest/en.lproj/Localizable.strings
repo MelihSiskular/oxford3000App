@@ -45,3 +45,8 @@
 "hard_words_text" = "Hard Words";
 "first_words_text" = "First Words";
 "language_alert_text" = "Changes Have Saved Succesfuly.";
+"notification-1" = "Do Not Forget To Learn! Did you check your list? Maybe there are some words that you havent know'n yet.";
+"notification-2" = "Good Morning! Would you like to start the day with practice?";
+"notification-3" = "Reminder for you! You can not learn langugage without studying.";
+"notification-4" = "What was it the word you always forget but sounds familiar? Learn by heart now. ";
+
