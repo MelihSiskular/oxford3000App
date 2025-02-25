@@ -13,6 +13,7 @@ struct EntranceText: View {
     
     var body: some View {
         VStack {
+            
             Text("entrance_text_top".localized)
                 .font(.custom("AmericanTypewriter", size: 28))
                 .font(.headline)

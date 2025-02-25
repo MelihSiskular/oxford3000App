@@ -49,4 +49,7 @@
 "notification-2" = "Good Morning! Would you like to start the day with practice?";
 "notification-3" = "Reminder for you! You can not learn langugage without studying.";
 "notification-4" = "What was it the word you always forget but sounds familiar? Learn by heart now. ";
-
+"tittle_correct" = "CORRECT";
+"tittle_wrong" = "WRONG";
+"message_correct" = "Your Pronuncation Is Correct✅\nYou can continue.";
+"message_wrong" = "Your Pronuncation Is Wrong❌\nTry again.";

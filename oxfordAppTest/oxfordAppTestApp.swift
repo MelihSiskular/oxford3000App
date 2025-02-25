@@ -15,12 +15,14 @@ struct oxfordAppTestApp: App {
         ///When the app opened
         getNotificationRequest()
         sendAllArrangedNotifications()
+        requestAuthorization()
     }
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .preferredColorScheme(.light) ///always gonna work on light mode
+            
         }
         .modelContainer(for: [ListHardData.self,ListFirstData.self]) ///SwiftData @Model
         
@@ -28,3 +30,4 @@ struct oxfordAppTestApp: App {
         
     }
 }
+

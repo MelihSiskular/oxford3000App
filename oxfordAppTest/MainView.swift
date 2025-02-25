@@ -128,7 +128,7 @@ final class LanguageBundle: Bundle {
 
 extension Bundle {
     static func setLanguage(_ language: String) {
-        let value = object_getClass(Bundle.main)
+        let value: AnyClass? = object_getClass(Bundle.main)
         object_setClass(Bundle.main, LanguageBundle.self)
         
         objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj")!)!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

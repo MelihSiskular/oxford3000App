@@ -17,7 +17,8 @@ struct LaunchButtonView: View {
     @Binding var currentWordEn: String
     @Binding var currentWordTr: String
     @Binding var kelimeler : [Kelimeler]
-    
+    @Binding var microphoneTapped :Bool
+
     
     
     @Query  var savedHardData : [ListHardData]
@@ -97,6 +98,7 @@ struct LaunchButtonView: View {
         .foregroundStyle(.cyan.mix(with: .black, by: 0.3))
         .fontWeight(.bold)
         .padding()
+        .blur(radius: microphoneTapped ? 8 : 0)
     }
 }
 

@@ -49,4 +49,8 @@
 "notification-2" = "Günaydın. Güne pratik yaparak başlamak ister misin?";
 "notification-3" = "Senin için bir hatırlatma, Çalışmadan bir dili öğrenemezsin.";
 "notification-4" = "Kulağına çok tanıdık gelen ama bir türlü hatırlayamadığın kelime neydi? Şimdi kalpten öğren.";
+"tittle_correct" = "DOĞRU";
+"tittle_wrong" = "YANLIŞ";
+"message_correct" = "Telaffuzunuz Doğru✅\nDevam edebilirsiniz";
+"message_wrong" = "Telaffuzunuz Yanlış❌\NTekrar Deneyin.";
 

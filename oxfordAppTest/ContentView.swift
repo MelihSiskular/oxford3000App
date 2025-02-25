@@ -21,6 +21,10 @@ struct ContentView: View {
     
     @State var kelimeler : [Kelimeler] = []
     
+    @State var microphoneTapped = false
+    @State var isActive : Bool = false
+    @State private var similarity = 0.0
+
     @State var currentWordEn = "English_Word".localized
     @State var currentWordTr = ""
     
@@ -53,9 +57,9 @@ struct ContentView: View {
                 
                 
                 //MARK: Button
-                LaunchButtonView(isTapped: $isTapped, selectedHard: $selectedHard, selectedFirst: $selectedFirst, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, kelimeler: $kelimeler)
+                LaunchButtonView(isTapped: $isTapped, selectedHard: $selectedHard, selectedFirst: $selectedFirst, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, kelimeler: $kelimeler, microphoneTapped: $microphoneTapped)
                 
-            
+               
                 
                 //MARK: Middle Section
                 ZStack {
@@ -66,10 +70,15 @@ struct ContentView: View {
                     
                    
                     //MARK: After Start Button
-                    MiddleSectionView(isEnglish: $isEnglish, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, isTapped: $isTapped)
+                    MiddleSectionView(isEnglish: $isEnglish, afterTapped: $afterTapped, currentWordEn: $currentWordEn, currentWordTr: $currentWordTr, isTapped: $isTapped, microphoneTapped: $microphoneTapped, isActive: $isActive, similarity: $similarity)
                     
+                    
+
+
                     
                 }
+
+
                 
                 Spacer()
                 
@@ -98,7 +107,18 @@ struct ContentView: View {
             }
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .blur(radius: isActive ? 8 : 0)
+
+            if isActive {
+                if similarity >= 85 {
+                    CustomDialog(isActive: $isActive, tittle: "tittle_correct".localized, message: "message_correct".localized, buttonTittle: "OK", action: {})
+                }else {
+                    CustomDialog(isActive: $isActive, tittle: "tittle_wrong".localized, message: "message_wrong".localized, buttonTittle: "OK", action: {})
+                }
+            }
+
         }
+        
     }
 }
 
