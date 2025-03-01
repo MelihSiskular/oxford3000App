@@ -110,6 +110,7 @@ struct FirstButtonScreen: View {
 
                             
                         }
+                        .listRowSeparator(.hidden)
                         .frame(height: 40)
 
 
@@ -122,6 +123,7 @@ struct FirstButtonScreen: View {
         
                 
             }
+           
             .navigationTitle("first_words_text".localized)
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)

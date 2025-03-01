@@ -130,7 +130,7 @@ struct HardButtonScreen: View {
                                         .padding(.horizontal,5)
                                     
                                 )
-                                
+                                .listRowSeparator(.hidden)
                                 
                                 
                                 
@@ -139,6 +139,7 @@ struct HardButtonScreen: View {
                             .frame(height: 40)
                         
                     }
+                   
                     .navigationTitle("hard_words_text".localized)
                     .navigationBarTitleDisplayMode(.inline)
                     .listStyle(.plain)

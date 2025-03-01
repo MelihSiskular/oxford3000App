@@ -18,7 +18,7 @@ struct MainView: View {
     ]
     
     
-    @State var selectedScreen = 1
+    @State var selectedScreen = 3
     @State var showLanguageAlert = false
     
     @Environment(\.modelContext) var modelContext
@@ -39,14 +39,26 @@ struct MainView: View {
                         Label("main_tab_first".localized, systemImage: "bolt")
                     }.tag(0)
                     .badge(savedFirstData.count)
+                
+                SuccesfulWordsView()
+                    .tabItem {
+                        Label("Succesfully".localized, systemImage: "graduationcap.fill")
+                    }.tag(1)
+                
                 ContentView()
                     .tabItem {
                         Label("main_tab_main".localized, systemImage: "house")
-                    }.tag(1)
+                    }.tag(3)
+                
+                StoriesView()
+                    .tabItem {
+                        Label("Stories".localized, systemImage: "book.fill")
+                    }.tag(4)
+                
                 HardButtonScreen()
                     .tabItem {
                         Label("main_tab_hard".localized, systemImage: "exclamationmark.3")
-                    }.tag(2)
+                    }.tag(5)
                     .badge(savedHardData.count)
                 
             }

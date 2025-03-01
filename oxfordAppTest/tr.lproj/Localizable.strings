@@ -53,4 +53,6 @@
 "tittle_wrong" = "YANLIŞ";
 "message_correct" = "Telaffuzunuz Doğru✅\nDevam edebilirsiniz";
 "message_wrong" = "Telaffuzunuz Yanlış❌\NTekrar Deneyin.";
-
+"stories_text" = "Hikayeler";
+"momo_bobo_text" = "Momo & Bobo \nVe Arkadaşları";
+"momo_bobo_text2" = "Bu uygulama ile ingilizce öğrenirken yalnız değilsin. Onlar sana gerçek hayattan örneklerle yardım edecek.";
