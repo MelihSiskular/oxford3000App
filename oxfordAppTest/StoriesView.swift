@@ -10,19 +10,24 @@ import SwiftUI
 struct StoriesView: View {
     
     @State private var testList = [
-        Stories(storyTitle: "Order Food", topic: .life, popUpText: "blablabla", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
-        Stories(storyTitle: "At Shopping", topic: .life, popUpText: "blablabla", boolScript: true, boolTest: true, boolWords: true, storyCompleted: true, pointInTest: 0),
-        Stories(storyTitle: "Ask Direction", topic: .travel, popUpText: "blablabla", boolScript: true, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
+        Stories(storyTitle: "Order Food", topic: .life, popUpText: "There will be a brief about story..", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
+        Stories(storyTitle: "At Shopping", topic: .life, popUpText: "There will be a brief about story..", boolScript: true, boolTest: true, boolWords: true, storyCompleted: true, pointInTest: 0),
+        Stories(storyTitle: "Ask Direction", topic: .travel, popUpText: "Momo & Bobo arrived the city but they dont know any road in there, They need to be confident and ask people who knows this city well.", boolScript: true, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
         Stories(storyTitle: "At The Airport", topic: .travel, popUpText: "blablabla", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
-        Stories(storyTitle: "Exam!", topic: .school, popUpText: "blablaaaabla", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
-        Stories(storyTitle: "Arrange The Meeting!", topic: .friends, popUpText: "blablabla", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
-        Stories(storyTitle: "Apply A Job", topic: .work, popUpText: "blablabla", boolScript: true, boolTest: true, boolWords: true, storyCompleted: true, pointInTest: 0),
+        Stories(storyTitle: "Exam!", topic: .school, popUpText: "There will be a brief about story...", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
+        Stories(storyTitle: "Arrange The Meeting!", topic: .friends, popUpText: "There will be a brief about story...", boolScript: false, boolTest: false, boolWords: false, storyCompleted: false, pointInTest: 0),
+        Stories(storyTitle: "Apply A Job", topic: .work, popUpText: "There will be a brief about story...", boolScript: true, boolTest: true, boolWords: true, storyCompleted: true, pointInTest: 0),
         
     ]
     
     @State private var expandedItem: String?
     @State var isActive = false
-    
+    @State private var isFirstActive1 = false
+    @State private var isFirstActive2 = false
+    @State private var isFirstActive3 = false
+    @State private var isFirstActive4 = false
+
+
     @State var title = ""
     @State var text = ""
 
@@ -52,13 +57,26 @@ struct StoriesView: View {
                                 .fontDesign(.serif)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.center)
+                                .opacity(isFirstActive1 ? 1 : 0)
                             RoundedRectangle(cornerRadius: 0, style: .continuous)
                                 .frame(maxWidth: 220,maxHeight: 1)
+                                .offset(x : isFirstActive2 ? 0 : 600)
+                            
+
                             Text("momo_bobo_text2".localized)
                                 .lineLimit(3)
                                 .multilineTextAlignment(.center)
                                 .frame(width:300)
+                                .opacity(isFirstActive3 ? 1 : 0)
+
                         }.offset(x: isActive ? 800:0)
+                            .onAppear {
+                                onAppeared()
+                            }
+                            .onDisappear {
+                                disAppeared()
+                            }
+                            
                         
                         popUpTextView(isActive: $isActive, storyTitle: title , popUpText: text, action: {})
                             .offset(x:isActive ? 0 : -800)
@@ -170,7 +188,9 @@ struct StoriesView: View {
                     }.padding(.horizontal)
                         .listStyle(.plain)
                         .shadow(radius: 1)
+                        .offset(y:isFirstActive4 ? 0 : 800)
                  
+                    
                     Spacer()
                         
                 }
@@ -178,6 +198,32 @@ struct StoriesView: View {
             
         }
         
+    }
+    func disAppeared() {
+        isFirstActive1 = false
+        isFirstActive2 = false
+        isFirstActive3 = false
+        isFirstActive4 = false
+    }
+    func onAppeared() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            withAnimation(.bouncy(duration: 2)) {
+                isFirstActive1 = true
+                
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            withAnimation(.bouncy(duration: 1)) {
+                isFirstActive2 = true
+                isFirstActive4 = true
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4 ) {
+            withAnimation(.bouncy(duration: 2)) {
+                isFirstActive3 = true
+                
+            }
+        }
     }
 }
 

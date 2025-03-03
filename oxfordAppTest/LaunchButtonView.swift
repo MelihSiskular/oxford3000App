@@ -18,12 +18,15 @@ struct LaunchButtonView: View {
     @Binding var currentWordTr: String
     @Binding var kelimeler : [Kelimeler]
     @Binding var microphoneTapped :Bool
+    
+    @State private var isActive = false
 
     
     
     @Query  var savedHardData : [ListHardData]
-    @Query  var savedFirstData : [ListFirstData]
+    @Query  var savedFirstData : [ListFirstDataNew]
 
+    
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
@@ -43,7 +46,7 @@ struct LaunchButtonView: View {
             }else if selectedFirst {
                 
                 
-                modelContext.insert(ListFirstData(tr: currentWordTr, en: currentWordEn, point: 0))
+                modelContext.insert(ListFirstDataNew(tr: currentWordTr, en: currentWordEn, point: 0,sentence: ""))
                 
                 do {
                     try modelContext.save() //Save process not working accurately thats why there's a code like that
@@ -99,6 +102,18 @@ struct LaunchButtonView: View {
         .fontWeight(.bold)
         .padding()
         .blur(radius: microphoneTapped ? 8 : 0)
+        .opacity(isActive ? 1 : 0)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                withAnimation(.bouncy(duration: 2)) {
+                    
+                    isActive = true
+                }
+            }
+        }
+        .onDisappear {
+            isActive = false
+        }
     }
 }
 

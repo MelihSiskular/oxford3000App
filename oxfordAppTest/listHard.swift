@@ -25,17 +25,18 @@ class ListHardData {
 }
 
 @Model
-class ListFirstData {
+class ListFirstDataNew {
     var tr: String
     var en: String
     var point: Int
+    var sentence: String
     
-    
-    init(tr: String, en: String, point: Int) {
+    init(tr: String, en: String, point: Int,sentence: String) {
         self.tr = tr
         self.en = en
         self.point = point
-      
+        self.sentence = sentence
+        
     }
 }
 

@@ -16,7 +16,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
    
     @Query  var savedHardData : [ListHardData]
-    @Query  var savedFirstData : [ListFirstData]
+    @Query  var savedFirstData : [ListFirstDataNew]
 
     
     @State var kelimeler : [Kelimeler] = []

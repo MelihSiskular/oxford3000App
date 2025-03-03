@@ -33,6 +33,8 @@ struct HardButtonScreen: View {
     @State var middleButton = "QUIZ"
     @State var rightButton = "Hide"
     
+    @State private var isActive = false
+    
     @Query  var savedHardData : [ListHardData]
     
     @State var colors : [Color] = [Color]()
@@ -122,7 +124,6 @@ struct HardButtonScreen: View {
                                         .opacity(isHidden ? 0:1)
                                     
                                 }
-                                .listRowSeparatorTint(.cyan)
                                 .listRowBackground(
                                     RoundedRectangle(cornerRadius: 12)
                                         .fill(Color.white)
@@ -139,11 +140,18 @@ struct HardButtonScreen: View {
                             .frame(height: 40)
                         
                     }
-                   
+                    .offset(x:isActive ? 0 : 600)
+                    .opacity(isActive ? 1 : 0)
                     .navigationTitle("hard_words_text".localized)
                     .navigationBarTitleDisplayMode(.inline)
                     .listStyle(.plain)
-                 
+                    .onAppear {
+                        onAppeared()
+                    }
+                    .onDisappear {
+                        disAppeared()
+                    }
+                    
                     Spacer()
                     
                 }
@@ -153,6 +161,14 @@ struct HardButtonScreen: View {
         }.onAppear() {
             colorsfunc(data: savedHardData, colors: &colors)
         }
+    }
+    func onAppeared() {
+        withAnimation(.smooth(duration: 1).speed(2)) {
+            isActive = true
+        }
+    }
+    func disAppeared() {
+        isActive = false
     }
 }
 

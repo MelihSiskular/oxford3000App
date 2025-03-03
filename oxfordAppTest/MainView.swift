@@ -22,7 +22,7 @@ struct MainView: View {
     @State var showLanguageAlert = false
     
     @Environment(\.modelContext) var modelContext
-    @Query  var savedFirstData : [ListFirstData]
+    @Query  var savedFirstData : [ListFirstDataNew]
     @Query  var savedHardData : [ListHardData]
     
     
@@ -84,7 +84,6 @@ struct MainView: View {
                 
                 ToolbarItem(placement: .topBarLeading) {
                     
-                  
                         Menu {
                             Picker("Dil Seç", selection: $languageManager.selectedLanguage) {
                                 ForEach(languages, id: \.0) { lang in
@@ -104,15 +103,9 @@ struct MainView: View {
                         }message: {
                             Text("language_alert_text".localized)
                         }
-                        
-                    
-              
                 }
-                
             }
-         
         }
-        
     }
 }
 
@@ -140,7 +133,7 @@ final class LanguageBundle: Bundle {
 
 extension Bundle {
     static func setLanguage(_ language: String) {
-        let value: AnyClass? = object_getClass(Bundle.main)
+        let _: AnyClass? = object_getClass(Bundle.main) //?
         object_setClass(Bundle.main, LanguageBundle.self)
         
         objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj")!)!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

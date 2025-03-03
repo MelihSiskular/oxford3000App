@@ -24,7 +24,7 @@ struct oxfordAppTestApp: App {
                 .preferredColorScheme(.light) ///always gonna work on light mode
             
         }
-        .modelContainer(for: [ListHardData.self,ListFirstData.self]) ///SwiftData @Model
+        .modelContainer(for: [ListHardData.self,ListFirstDataNew.self]) ///SwiftData @Model
         
         
         
