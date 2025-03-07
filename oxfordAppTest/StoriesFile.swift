@@ -26,9 +26,9 @@ struct Stories{
 }
 
 enum topic: String,CaseIterable {
-    case travel = "Travel ✈️"
-    case school = "School 🏫"
-    case work = "Work 👔"
-    case life = "Life ❤️"
-    case friends = "Friends 🧑‍🤝‍🧑"
+    case travel = "topic_travel"
+    case school = "topic_school"
+    case work = "topic_work"
+    case life = "topic_life"
+    case friends = "topic_friends"
 }

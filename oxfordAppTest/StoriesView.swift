@@ -30,6 +30,9 @@ struct StoriesView: View {
 
     @State var title = ""
     @State var text = ""
+    
+  
+   
 
     var body: some View {
         NavigationStack {
@@ -88,8 +91,8 @@ struct StoriesView: View {
                     
                     List {
                         ForEach(topic.allCases, id: \.self) { category in
-                            Section(header: Text(category.rawValue)) {
-                                
+                            Section(header: Text(category.rawValue.localized))
+                              {
                                 ForEach(testList.filter{$0.topic == category},id: \.storyTitle) { story in
                                     HStack {
                                         Circle()
@@ -185,11 +188,13 @@ struct StoriesView: View {
                                 }
                             }
                         }
+                        
+                        
                     }.padding(.horizontal)
+                        .headerProminence(.increased)
                         .listStyle(.plain)
                         .shadow(radius: 1)
                         .offset(y:isFirstActive4 ? 0 : 800)
-                 
                     
                     Spacer()
                         

@@ -35,7 +35,7 @@ struct SuccesfulWordsView: View {
                         .frame(maxWidth: 200,maxHeight: 1)
                         .offset(x: isActive ? 0 : -400)
                         
-                    Text("Make mistakes and come into the words you haven't heard before...")
+                Text("succesfullyScreenText_1".localized)
                         .multilineTextAlignment(.center)
                         .fontWeight(.semibold)
                         .italic()
@@ -45,7 +45,7 @@ struct SuccesfulWordsView: View {
                         .frame(maxWidth: 280,maxHeight: 1)
                         .offset(x: isActive ? 0: 400)
                 
-                    Text("One of the best way of learning.\nSo Let's Start!")
+                Text("succesfullyScreenText_2".localized)
                         .multilineTextAlignment(.center)
                         .fontWeight(.semibold)
                         .italic()
@@ -55,7 +55,7 @@ struct SuccesfulWordsView: View {
                         .frame(maxWidth: 200,maxHeight: 1)
                         .offset(x: isActive ? 0 : -400)
                 
-                    Text("You will be able to see your words only if you had Quizes succesfully...")
+                Text("succesfullyScreenText_3".localized)
                         .multilineTextAlignment(.center)
                         .fontWeight(.semibold)
                         .italic()
