@@ -70,6 +70,7 @@ struct FirstButtonScreen: View {
                             .buttonBorderShape(.roundedRectangle)
                             .tint(Color.orange.mix(with: .white, by: 0.1))
                             .foregroundStyle(Color.black)
+                            
                         
                         Spacer()
                         
@@ -78,7 +79,12 @@ struct FirstButtonScreen: View {
                         VStack {
                             Button("quiz_button".localized) {
                                 // Butona tıklayınca geçişi tetikle
-                                isShowQuizScreen = true
+                                if savedFirstData.count != 0{
+                                    isShowQuizScreen = true
+                                }else {
+                                    
+                                }
+                                print(savedFirstData.count)
                             }
                             .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                             .fontWeight(.bold)
@@ -88,8 +94,9 @@ struct FirstButtonScreen: View {
                             .tint(Color.orange.mix(with: .white, by: 0.1))
                             .foregroundStyle(Color.black)
                             .navigationDestination(isPresented: $isShowQuizScreen) {
-                                QuizScreen().navigationBarBackButtonHidden()
+                                QuizScreen(dizi: [categoryFirstList(listFirstDataNewArray: savedFirstData)]).navigationBarBackButtonHidden()
                             }
+                            
                             
                       
                         }

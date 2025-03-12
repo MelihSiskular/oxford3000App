@@ -14,7 +14,7 @@ protocol Quiz {
     
 }
 
-struct categoryFirstList: Quiz {
+class categoryFirstList: Quiz {
     var listFirstDataNewArray :[ListFirstDataNew]
     
     init(listFirstDataNewArray: [ListFirstDataNew]) {
@@ -22,7 +22,7 @@ struct categoryFirstList: Quiz {
     }
 }
 
-struct categoryHardList: Quiz {
+class categoryHardList: Quiz {
     var listHardDataArray : [ListHardData]
     
     init(listHardDataArray: [ListHardData]) {

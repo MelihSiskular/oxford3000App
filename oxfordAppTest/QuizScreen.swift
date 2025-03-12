@@ -10,6 +10,8 @@ import SwiftUI
 struct QuizScreen: View {
     
     @Environment(\.dismiss) private var dismiss  // Geri gitme işlemi için dismiss'i kullanıyoruz
+    var dizi : [Quiz] 
+    @State private var currenctQuestion = 0
     
     
     var body: some View {
@@ -20,6 +22,9 @@ struct QuizScreen: View {
                 
                 VStack {
                     
+                   
+                    
+                    
                     HStack {
                         Text("QUIZ")
                             .bold()
@@ -28,6 +33,10 @@ struct QuizScreen: View {
                         Spacer()
                     }.padding(.horizontal)
                     
+                    Text("Question " + currenctQuestion.description + " in " + dizi.count.description)
+                        .font(.largeTitle)
+                        .bold()
+                        .fontWidth(.condensed)
                     
                     
                     
@@ -35,8 +44,8 @@ struct QuizScreen: View {
                         RoundedRectangle(cornerRadius: 24)
                             .foregroundStyle(.white)
                             .shadow(color: .black, radius: 2, x: 2, y: 2)
-                            .padding()
-                            .frame(height: 200)
+                            .padding([.horizontal,.bottom])
+                            .frame(height: 160)
                     }
                     
                     RoundedRectangle(cornerRadius: 0, style: .continuous)
@@ -46,30 +55,35 @@ struct QuizScreen: View {
                     
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
-                        .shadow(color: .black, radius: 2, x: 2, y: 2)
+                        .shadow(color: .cyan.mix(with: .white, by: 0.5), radius: 2, x: 3, y: 7)
                         .padding(.horizontal)
-                        .frame(height: 60)
+                        .frame(height: 50)
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
-                        .shadow(color: .black, radius: 2, x: 2, y: 2)
+                        .shadow(color: .cyan.mix(with: .white, by: 0.5), radius: 2, x: 3, y: 7)
                         .padding(.horizontal)
-                        .frame(height: 60)
+                        .frame(height: 50)
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
-                        .shadow(color: .black, radius: 2, x: 2, y: 2)
+                        .shadow(color: .cyan.mix(with: .white, by: 0.5), radius: 2, x: 3, y: 7)
                         .padding(.horizontal)
-                        .frame(height: 60)
+                        .frame(height: 50)
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
-                        .shadow(color: .black, radius: 2, x: 2, y: 2)
+                        .shadow(color: .cyan.mix(with: .white, by: 0.5), radius: 2, x: 3, y: 7)
                         .padding(.horizontal)
-                        .frame(height: 60)
+                        .frame(height: 50)
                     
-                    RoundedRectangle(cornerRadius: 8)
-                        .foregroundStyle(.orange.mix(with: .white, by: 0.2))
-                        .shadow(color: .black, radius: 2, x: 2, y: 2)
+                    Button("Complete") {
+                        
+                    }   .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.roundedRectangle)
+                        .tint(Color.orange.mix(with: .white, by: 0.1))
+                        .foregroundStyle(Color.black)
                         .padding()
-                        .frame(height: 100)
                     
                     
                     
@@ -82,6 +96,9 @@ struct QuizScreen: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         dismiss()
+                        print(dizi[0])
+                        
+                       
                     }) {
                         Text("Çıkış Yap")
                             .bold()
@@ -90,12 +107,13 @@ struct QuizScreen: View {
                     }
                 }
             }
+          
         }
         
     }
 }
 
 #Preview {
-    QuizScreen()
+    QuizScreen(dizi: [] )
 }
 

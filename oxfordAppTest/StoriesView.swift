@@ -116,6 +116,8 @@ struct StoriesView: View {
                                                 .fontWidth(.condensed)
                                          
                                         }
+                                  
+
                                         .onTapGesture {
                                             withAnimation {
                                                 expandedItem = expandedItem == story.storyTitle ? nil : story.storyTitle
@@ -187,14 +189,21 @@ struct StoriesView: View {
                                     }
                                 }
                             }
+                         
+
                         }
+                       
+
                         
                         
                     }.padding(.horizontal)
                         .headerProminence(.increased)
-                        .listStyle(.plain)
+                        .listStyle(.grouped)
+                        .scrollContentBackground(.hidden)
                         .shadow(radius: 1)
                         .offset(y:isFirstActive4 ? 0 : 800)
+                          // Tüm liste arka planını şeffaf yapar
+
                     
                     Spacer()
                         
